@@ -9,9 +9,10 @@
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1",
-    "popper.js": "^1.16.0",
     "core-js": "^3.6.4",
+    "jquery": "^3.4.1",
+    "miragejs": "^0.1.35",
+    "popper.js": "^1.16.0",
     "vue": "^2.6.11",
     "vue-router": "^3.1.5",
     "vuex": "^3.1.2"
