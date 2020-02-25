@@ -10,10 +10,9 @@
          <Menu/>
       </div>
     </div>
-    <div class="row">
-      <div class="w-100 h-100 logo">
-        <img src="@/assets/logo.png" alt="">
-      </div>
+    <div class="row align-items-center">
+      <img src="../assets/logo.png" alt="Logo" class="logo mr-5">
+      <h1>Active Learning Online Store</h1>
     </div>
     <router-view/>
   </section>
@@ -31,5 +30,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
+.logo{
+  width: 12%;
+}
 </style>
