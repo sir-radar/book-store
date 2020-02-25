@@ -1,5 +1,5 @@
 <template>
-  <div class="login row">
+  <div class="signup row">
     <div class="col-md-6">
       <h1 class="text-left">Create an account</h1>
       <form @submit.prevent="createAccount(credencials)" class="mt-5">

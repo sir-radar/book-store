@@ -15,20 +15,20 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { mapActions, mapState } from 'vuex'
 export default {
   name: 'Home',
   components: {
     BookCard: () => import('@/components/BookCard')
   },
-  data () {
-    return {
-      books: []
-    }
+  async mounted () {
+    await this.getBooks()
   },
-  mounted () {
-    axios.get('/api/books')
-      .then(res => { this.books = res.data.books })
+  methods: {
+    ...mapActions(['getBooks'])
+  },
+  computed: {
+    ...mapState(['books'])
   }
 }
 </script>

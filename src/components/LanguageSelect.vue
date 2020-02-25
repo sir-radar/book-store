@@ -1,5 +1,5 @@
 <template>
-  <div class="form-group col-md-4">
+  <div class="form-group col-md-2">
     <select v-model="lang" @change="changeLang" id="inputState" class="form-control">
       <option selected value='en'>English</option>
       <option value='fr'>French</option>

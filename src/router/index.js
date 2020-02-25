@@ -11,7 +11,7 @@ const routes = [
     children: [
       {
         path: '',
-        component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
+        component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
       },
       {
         path: 'about',
@@ -19,23 +19,56 @@ const routes = [
       },
       {
         path: 'store',
-        component: () => import(/* webpackChunkName: "about" */ '../views/Store.vue')
+        component: () => import(/* webpackChunkName: "store" */ '../views/Store.vue')
       },
       {
         path: 'login',
-        component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue')
+        component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
       },
       {
         path: 'create-account',
-        component: () => import(/* webpackChunkName: "about" */ '../views/SignUp.vue')
+        component: () => import(/* webpackChunkName: "signup" */ '../views/SignUp.vue')
+      }
+    ]
+  },
+  {
+    path: '/admin',
+    component: Base,
+    children: [
+      {
+        path: '',
+        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/Dashboard.vue')
+      },
+      {
+        path: 'manage-books',
+        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/ManageBooks.vue')
+      },
+      {
+        path: 'manage-users',
+        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/ManageUsers.vue')
+      },
+      {
+        path: 'manage-orders',
+        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/ManageOrders.vue')
+      },
+      {
+        path: 'edit-book/:id',
+        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/AddOrEditBook.vue')
+      },
+      {
+        path: 'add-book',
+        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/AddOrEditBook.vue')
+      },
+      {
+        path: 'edit-user/:id',
+        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/AddOrEditUser.vue')
+      },
+      {
+        path: 'add-user',
+        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/AddOrEditUser.vue')
       }
     ]
   }
-  // {
-  //   path: '/about',
-  //   name: 'about',
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  // }
 ]
 
 const router = new VueRouter({

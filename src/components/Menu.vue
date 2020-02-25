@@ -4,14 +4,17 @@
     <router-link to="/about">About</router-link>
     <router-link to="/store">Store</router-link>
     <router-link v-if="authUser === ''" to="/login">LogIn</router-link>
-    <a href="#" v-else>LogOut</a>
+    <a @click.prevent="logout" href="#" v-else>LogOut</a>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'Menu',
+  methods: {
+    ...mapMutations(['logout'])
+  },
   computed: {
     ...mapState(['authUser'])
   }

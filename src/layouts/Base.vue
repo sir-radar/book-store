@@ -1,7 +1,10 @@
 <template>
   <section class="container">
     <div class="row">
-      <div class="col-8 offset-10">
+      <div class="d-flex justify-content-end align-items-center col-12">
+        <div class="" v-if="authUser !== '' && authUser.role === 'Admin'">
+          <p>Welcome, {{ authUser.username }} <router-link to="/admin">Admin Panel</router-link></p>
+        </div>
          <select-language></select-language>
       </div>
     </div>
@@ -18,6 +21,7 @@
   </section>
 </template>
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'Base',
   components: {
@@ -26,6 +30,9 @@ export default {
   },
   data () {
     return {}
+  },
+  computed: {
+    ...mapState(['authUser'])
   }
 }
 </script>

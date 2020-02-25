@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-import router from '../store'
+import router from '../router'
 import VuexPersist from 'vuex-persist'
 
 Vue.use(Vuex)
@@ -16,7 +16,8 @@ const vuexLocalStorage = new VuexPersist({
 export default new Vuex.Store({
   state: {
     authUser: '',
-    error: ''
+    error: '',
+    books: []
   },
   mutations: {
     setAuthUser (state, payload) {
@@ -24,12 +25,18 @@ export default new Vuex.Store({
     },
     setLoginError (state, error) {
       state.error = error
+    },
+    logout (state) {
+      state.authUser = ''
+    },
+    setBooks (state, books) {
+      state.books = books
     }
   },
   actions: {
     async login ({ commit }, crendencials) {
       const response = await axios.post('/api/login', crendencials)
-      if (response.data.error !== null) {
+      if (response.data.error) {
         commit('setLoginError', response.data.error)
         return
       }
@@ -39,6 +46,10 @@ export default new Vuex.Store({
     async createAccount ({ commit }, crendencials) {
       const response = await axios.post('/api/user', crendencials)
       console.log(response)
+    },
+    async getBooks ({ commit }) {
+      const response = await axios.get('/api/books')
+      commit('setBooks', response.data.books)
     }
   },
   modules: {

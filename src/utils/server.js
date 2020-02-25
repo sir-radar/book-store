@@ -34,13 +34,13 @@ export default new Server({
       return schema.books.all()
     })
 
-    this.post('/api/books', (schema, request) => {
-      const newbBook = JSON.parse(request.requestBody).data
+    this.post('/api/book', (schema, request) => {
+      const newbBook = JSON.parse(request.requestBody)
       return schema.books.insert(newbBook)
     })
 
     this.patch('/api/books/:id', (schema, request) => {
-      const editedBook = JSON.parse(request.requestBody).data
+      const editedBook = JSON.parse(request.requestBody)
       const book = schema.books.find(request.params.id)
       return book.update(editedBook)
     })
