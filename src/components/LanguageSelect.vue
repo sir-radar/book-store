@@ -1,15 +1,26 @@
 <template>
   <div class="form-group col-md-4">
-    <select id="inputState" class="form-control">
-      <option selected>English</option>
-      <option>Swedish</option>
+    <select v-model="lang" @change="changeLang" id="inputState" class="form-control">
+      <option selected value='en'>English</option>
+      <option value='fr'>French</option>
     </select>
   </div>
 </template>
 
 <script>
+import i18n from '../i18n'
 export default {
-  name: 'LanguageSelect'
+  name: 'LanguageSelect',
+  data () {
+    return {
+      lang: ''
+    }
+  },
+  methods: {
+    changeLang () {
+      i18n.locale = this.lang
+    }
+  }
 }
 </script>
 

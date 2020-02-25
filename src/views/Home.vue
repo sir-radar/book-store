@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <h1>Welcome home</h1>
+    <p>{{$t('message')}}</p>
   </div>
 </template>
 
