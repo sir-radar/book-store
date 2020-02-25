@@ -17,7 +17,8 @@ export default new Vuex.Store({
   state: {
     authUser: '',
     error: '',
-    books: []
+    books: [],
+    users: []
   },
   mutations: {
     setAuthUser (state, payload) {
@@ -32,6 +33,9 @@ export default new Vuex.Store({
     },
     setBooks (state, books) {
       state.books = books
+    },
+    setUsers (state, users) {
+      state.users = users
     }
   },
   actions: {
@@ -48,9 +52,17 @@ export default new Vuex.Store({
       const response = await axios.post('/api/user', crendencials)
       console.log(response)
     },
+    async updateAccount ({ commit }, crendencials) {
+      const response = await axios.patch(`/api/users/${crendencials.id}`, crendencials)
+      console.log(response)
+    },
     async getBooks ({ commit }) {
       const response = await axios.get('/api/books')
       commit('setBooks', response.data.books)
+    },
+    async getUsers ({ commit }) {
+      const response = await axios.get('/api/users')
+      commit('setUsers', response.data.users)
     }
   },
   modules: {

@@ -90,5 +90,11 @@ export default new Server({
       const newUser = JSON.parse(request.requestBody)
       return schema.users.create(newUser)
     })
+
+    this.patch('/api/users/:id', (schema, request) => {
+      const editedUser = JSON.parse(request.requestBody)
+      const user = schema.users.find(request.params.id)
+      return user.update(editedUser)
+    })
   }
 })

@@ -3,9 +3,13 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import 'bootstrap'
+import 'buefy/dist/buefy.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './utils/server'
 import i18n from './i18n'
+import { Table } from 'buefy'
+
+Vue.use(Table)
 
 Vue.config.productionTip = false
 

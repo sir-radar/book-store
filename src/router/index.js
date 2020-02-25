@@ -67,12 +67,8 @@ const routes = [
       },
       {
         path: 'edit-user/:id',
-        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/AddOrEditUser.vue'),
-        meta: { requiresAuth: true }
-      },
-      {
-        path: 'add-user',
-        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/AddOrEditUser.vue'),
+        name: 'userEdit',
+        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/EditUser.vue'),
         meta: { requiresAuth: true }
       }
     ]
