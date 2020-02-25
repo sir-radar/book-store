@@ -37,35 +37,43 @@ const routes = [
     children: [
       {
         path: '',
-        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/Dashboard.vue')
+        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/Dashboard.vue'),
+        meta: { requiresAuth: true }
       },
       {
         path: 'manage-books',
-        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/ManageBooks.vue')
+        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/ManageBooks.vue'),
+        meta: { requiresAuth: true }
       },
       {
         path: 'manage-users',
-        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/ManageUsers.vue')
+        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/ManageUsers.vue'),
+        meta: { requiresAuth: true }
       },
       {
         path: 'manage-orders',
-        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/ManageOrders.vue')
+        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/ManageOrders.vue'),
+        meta: { requiresAuth: true }
       },
       {
         path: 'edit-book/:id',
-        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/AddOrEditBook.vue')
+        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/AddOrEditBook.vue'),
+        meta: { requiresAuth: true }
       },
       {
         path: 'add-book',
-        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/AddOrEditBook.vue')
+        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/AddOrEditBook.vue'),
+        meta: { requiresAuth: true }
       },
       {
         path: 'edit-user/:id',
-        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/AddOrEditUser.vue')
+        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/AddOrEditUser.vue'),
+        meta: { requiresAuth: true }
       },
       {
         path: 'add-user',
-        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/AddOrEditUser.vue')
+        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/AddOrEditUser.vue'),
+        meta: { requiresAuth: true }
       }
     ]
   }

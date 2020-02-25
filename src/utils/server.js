@@ -25,8 +25,26 @@ export default new Server({
   },
   seeds (server) {
     server.createList('book', 5)
-    // server.create('user')
-    // server.createList('user', 3)
+    server.db.loadData({
+      users: [
+        {
+          firstName: 'Samson',
+          lastName: 'Nwokike',
+          email: 'nwokikesamson@gmail.com',
+          username: 'radar',
+          password: 'secret',
+          role: 'Admin'
+        },
+        {
+          firstName: 'William',
+          lastName: 'Okafor',
+          email: 'okaforwill@gmail.com',
+          username: 'will',
+          password: 'secret',
+          role: 'User'
+        }
+      ]
+    })
   },
   routes () {
     // book routes

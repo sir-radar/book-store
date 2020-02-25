@@ -28,6 +28,7 @@ export default new Vuex.Store({
     },
     logout (state) {
       state.authUser = ''
+      router.push('/')
     },
     setBooks (state, books) {
       state.books = books
