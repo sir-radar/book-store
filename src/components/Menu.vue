@@ -3,14 +3,18 @@
     <router-link to="/">Home</router-link>
     <router-link to="/about">About</router-link>
     <router-link to="/store">Store</router-link>
-    <router-link to="/login">LogIn</router-link>
-    <!-- <router-link>Home</router-link> -->
+    <router-link v-if="authUser === ''" to="/login">LogIn</router-link>
+    <a href="#" v-else>LogOut</a>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  name: 'Menu'
+  name: 'Menu',
+  computed: {
+    ...mapState(['authUser'])
+  }
 }
 </script>
 

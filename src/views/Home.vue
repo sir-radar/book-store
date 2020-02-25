@@ -1,7 +1,16 @@
 <template>
-  <div class="home">
-    <h1>Welcome home</h1>
-    <p>{{$t('message')}}</p>
+  <div class="row">
+    <div class="col-md-6">
+      <h4 class="text-left">Recently added books</h4>
+      <BookCard
+        v-for="(book, index) in books"
+        :key="index"
+        :book="book"
+      />
+    </div>
+    <div class="col-md-6">
+      <h4>Special offers</h4>
+    </div>
   </div>
 </template>
 
@@ -10,10 +19,16 @@ import axios from 'axios'
 export default {
   name: 'Home',
   components: {
+    BookCard: () => import('@/components/BookCard')
+  },
+  data () {
+    return {
+      books: []
+    }
   },
   mounted () {
     axios.get('/api/books')
-      .then(res => console.log(res))
+      .then(res => { this.books = res.data.books })
   }
 }
 </script>
