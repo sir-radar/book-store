@@ -36,6 +36,12 @@
             <input v-model="credentials.price" type="number" class="form-control" id="inputPrice" required>
           </div>
         </div>
+        <div class="form-group row">
+          <label for="promotions" class="col-sm-4 col-form-label">Promotion</label>
+          <div class="col-sm-8">
+            <input v-model="credentials.promotion" type="checkbox" class="" id="promotions">
+          </div>
+        </div>
         <button type="submit" class="btn btn-primary float-right">Save</button>
       </form>
     </div>
@@ -66,7 +72,8 @@ export default {
         author: '',
         image: '',
         date: new Date().toLocaleDateString(),
-        price: ''
+        price: '',
+        promotion: false
       }
     }
   },

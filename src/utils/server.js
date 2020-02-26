@@ -27,8 +27,49 @@ export default new Server({
     })
   },
   seeds (server) {
-    server.createList('book', 5)
     server.db.loadData({
+      books: [
+        {
+          author: 'Adam Shift',
+          title: 'Never walk alone in the dark',
+          price: 5,
+          date: new Date().toLocaleDateString(),
+          image: process.env.VUE_APP_BOOK_COVER || '/img/cover2.97f2c218.jpg',
+          promotion: true
+        },
+        {
+          author: 'Sr. Olm',
+          title: 'Sweet sun in the garden',
+          price: 10,
+          date: new Date().toLocaleDateString(),
+          image: process.env.VUE_APP_BOOK_COVER || '/img/cover2.97f2c218.jpg',
+          promotion: false
+        },
+        {
+          author: 'Mathew Cook',
+          title: 'Home alone with my shadow',
+          price: 15,
+          date: new Date().toLocaleDateString(),
+          image: process.env.VUE_APP_BOOK_COVER || '/img/cover2.97f2c218.jpg',
+          promotion: true
+        },
+        {
+          author: 'Johnny Qirk',
+          title: 'Security and a will to live',
+          price: 7,
+          date: new Date().toLocaleDateString(),
+          image: process.env.VUE_APP_BOOK_COVER || '/img/cover2.97f2c218.jpg',
+          promotion: false
+        },
+        {
+          author: 'Jame Battle',
+          title: 'War front stories and lasting effect',
+          price: 8,
+          date: new Date().toLocaleDateString(),
+          image: process.env.VUE_APP_BOOK_COVER || '/img/cover2.97f2c218.jpg',
+          promotion: true
+        }
+      ],
       users: [
         {
           firstName: 'Samson',

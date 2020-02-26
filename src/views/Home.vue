@@ -12,6 +12,14 @@
     </div>
     <div class="col-md-6">
       <h4>Special offers</h4>
+      <BookCard
+        v-for="(book, index) in promotions"
+        :key="index"
+        :book="book"
+        :customerId="authUser.id"
+        @buyBook="buyBook"
+      />
+
     </div>
   </div>
 </template>
@@ -46,7 +54,10 @@ export default {
     }
   },
   computed: {
-    ...mapState(['books', 'authUser'])
+    ...mapState(['books', 'authUser']),
+    promotions () {
+      return this.books.filter(book => book.promotion === true)
+    }
   }
 }
 </script>
