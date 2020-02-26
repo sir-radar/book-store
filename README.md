@@ -1,24 +1,20 @@
 # book-store
 
-## Project setup
-```
-npm install
-```
+## Project description
+A mini online book store for book lovers.
+This app users miragejs to mock API calls
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Demo Link
+https://active-learning-store.netlify.com/
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Admin Login Details
+Username: radar
+Password: secret
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### User Login Details
+Username: will
+Password: secret
+
+
+
