@@ -18,6 +18,7 @@
       <h1>Active Learning Online Store</h1>
     </div>
     <router-view/>
+    <Notify v-if="notify.type" :notify="notify"/>
   </section>
 </template>
 <script>
@@ -26,13 +27,14 @@ export default {
   name: 'Base',
   components: {
     SelectLanguage: () => import('@/components/LanguageSelect'),
-    Menu: () => import('@/components/Menu')
+    Menu: () => import('@/components/Menu'),
+    Notify: () => import('@/components/Notify')
   },
   data () {
     return {}
   },
   computed: {
-    ...mapState(['authUser'])
+    ...mapState(['authUser', 'notify'])
   }
 }
 </script>

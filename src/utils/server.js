@@ -1,4 +1,4 @@
-import { Server, Model, Factory, JSONAPISerializer, hasMany, belongsTo } from 'miragejs'
+import { Server, Model, Factory, hasMany, belongsTo } from 'miragejs'
 import faker from 'faker'
 
 export default new Server({
@@ -10,9 +10,6 @@ export default new Server({
     order: Model.extend({
       user: belongsTo()
     })
-  },
-  serializers: {
-    application: JSONAPISerializer
   },
   factories: {
     book: Factory.extend({
@@ -65,6 +62,7 @@ export default new Server({
     })
   },
   routes () {
+    this.timing = 500
     // book routes
     this.get('/api/books', (schema) => {
       return schema.books.all()
@@ -96,6 +94,7 @@ export default new Server({
         }
       }
       return {
+        id: user.id,
         username: user.username,
         email: user.email,
         role: user.role,

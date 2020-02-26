@@ -8,7 +8,8 @@
       <b-table
         :data="users"
         :bordered="true"
-        :striped="true">
+        :striped="true"
+        :loading="loading">
 
         <template slot-scope="props">
             <b-table-column field="id" label="ID" width="40" numeric>

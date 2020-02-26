@@ -19,7 +19,11 @@ export default new Vuex.Store({
     error: '',
     books: [],
     users: [],
-    orders: []
+    orders: [],
+    notify: {
+      type: '',
+      message: ''
+    }
   },
   mutations: {
     setAuthUser (state, payload) {
@@ -52,6 +56,15 @@ export default new Vuex.Store({
     removeOrder (state, id) {
       const index = state.orders.findIndex(order => order.id === id)
       state.orders.splice(index, 1)
+    },
+    showNotify (state, nofifyDetails) {
+      state.notify = nofifyDetails
+      setTimeout(() => {
+        state.notify = {
+          type: '',
+          message: ''
+        }
+      }, 2000)
     }
   },
   actions: {
@@ -98,8 +111,7 @@ export default new Vuex.Store({
       }
     },
     async createOrder ({ commit }, credentials) {
-      const response = await axios.post('/api/order', credentials)
-      console.log(response)
+      await axios.post('/api/order', credentials)
     },
     async getOrders ({ commit }) {
       const response = await axios.get('/api/orders?include=user')

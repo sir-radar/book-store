@@ -19,17 +19,16 @@ export default {
   name: 'BookCard',
   props: {
     book: Object,
-    createOrder: Function,
     customerId: String
   },
   methods: {
-    async orderBook () {
+    orderBook () {
       const credentials = {
         book: this.book.title,
-        date: new Date().toLocaleDateString,
-        customer: this.customerId
+        date: new Date().toLocaleDateString(),
+        userId: this.customerId
       }
-      await this.createOrder(credentials)
+      this.$emit('buyBook', credentials)
     }
   }
 }

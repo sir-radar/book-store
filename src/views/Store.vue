@@ -6,13 +6,15 @@
         v-for="(book, index) in books"
         :key="index"
         :book="book"
+        :customerId="authUser.id"
+        @buyBook="buyBook"
       />
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapState, mapMutations } from 'vuex'
 export default {
   name: 'Home',
   components: {
@@ -22,10 +24,26 @@ export default {
     await this.getBooks()
   },
   methods: {
-    ...mapActions(['getBooks'])
+    ...mapActions(['getBooks', 'createOrder']),
+    ...mapMutations(['showNotify']),
+    async buyBook (credentials) {
+      // checks if user is currently logged in before book can be bought
+      if (this.authUser.id) {
+        await this.createOrder(credentials)
+        this.showNotify({
+          type: 'success',
+          message: 'Book bought successfully'
+        })
+      } else {
+        this.showNotify({
+          type: 'danger',
+          message: 'Please sign in to buy books'
+        })
+      }
+    }
   },
   computed: {
-    ...mapState(['books'])
+    ...mapState(['books', 'authUser'])
   }
 }
 </script>
