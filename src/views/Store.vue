@@ -16,7 +16,7 @@
 <script>
 import { mapActions, mapState, mapMutations } from 'vuex'
 export default {
-  name: 'Home',
+  name: 'Store',
   components: {
     BookCard: () => import('@/components/BookCard')
   },

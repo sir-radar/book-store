@@ -9,7 +9,8 @@ Vue.use(Vuex)
 const vuexLocalStorage = new VuexPersist({
   storage: window.localStorage,
   reducer: state => ({
-    authUser: state.authUser
+    authUser: state.authUser,
+    lang: state.lang
   })
 })
 
@@ -23,9 +24,13 @@ export default new Vuex.Store({
     notify: {
       type: '',
       message: ''
-    }
+    },
+    lang: 'en'
   },
   mutations: {
+    setLang (state, lang) {
+      state.lang = lang
+    },
     setAuthUser (state, payload) {
       state.authUser = payload
     },

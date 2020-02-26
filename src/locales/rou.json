@@ -1,0 +1,84 @@
+{
+  "menu": {
+    "home": "Acasă",
+    "about": "Despre",
+    "store": "Magazin",
+    "login": "Autentificare",
+    "logout": "Deconectare"
+  },
+  "home": {
+    "recent_books": "Carti adaugate recent",
+    "promotions": "Oferte speciale",
+    "buy_now": "Cumpără acum"
+  },
+  "about": {
+    "title": "Despre noi",
+    "content": "Cu peste 20 de ani de experiență în achiziții și vânzare de cărți, Active Learning Online Store a devenit un prim punct de apel în Europa pentru orice servicii de achiziții pentru biblioteci, magazine și arhive din toată Europa. O companie care are mari afiliații și parteneriate cu diverse companii de renume internațional în domeniul dezvoltării bibliotecilor și arhivării, Active Learning Online Store înțelege clar activitatea de aprovizionare și furnizare a cărților internaționale și a echipamentelor de bibliotecă. Am gestionat cu succes proiecte solicitante din punct de vedere financiar, precum ETF, Banca Mondială, PTF și altele pentru instituții din Nigeria, ceea ce confirmă starea noastră financiară stabilă. Oferim prețuri competitive pentru cărțile noastre pe baza prețurilor publicate verificabile. Cu noi, obțineți un răspuns precis, eficient și la timp, susținut de cunoașterea detaliată a cerințelor documentare pentru a asigura livrarea fără probleme."
+  },
+  "store": {
+    "title": "Inventar"
+  },
+  "login": {
+    "title": "Autentificare",
+    "have_account": "Nu aveți cont?",
+    "sign_up": "Inscrie-te",
+    "btn_text": "Conectare"
+  },
+  "signup": {
+    "title": "Creează un cont",
+    "btn_text": "Creează cont"
+  },
+  "auth":{
+    "username": "Nume de utilizator",
+    "password": "Parola",
+    "c_password": "Confirmă parola",
+    "l_name": "Numele de familie",
+    "f_name": "Nume",
+    "email": "E-mail"
+  },
+  "admin_link": {
+    "welcome": "Bine ati venit",
+    "admin_panel": "Panoul Administratorului"
+  },
+  "dashboard": {
+    "title": "Tablou de bord",
+    "manage_users": "Gestionare Utilizatori",
+    "manage_books": "Gestionează cărți",
+    "manage_orders": "Gestionați comenzile"
+  },
+  "util": {
+    "prev_btn": "Pagina anterioară",
+    "add_btn": "Adăugați carte"
+  },
+  "table": {
+    "id": "ID",
+    "l_name": "Numele de familie",
+    "f_name": "Nume",
+    "email": "E-mail",
+    "title": "Titlu",
+    "author": "Autor",
+    "date": "Data",
+    "option": "Opțiuni",
+    "edit": "Editați",
+    "delete": "Șterge",
+    "customer": "Client",
+    "book": "Carte"
+  },
+  "notify": {
+    "error_message": "Vă rugăm să vă conectați pentru a cumpăra cărți",
+    "success_message": "Carte cumpărată cu succes"
+  },
+  "edit_acct": {
+    "title": "Editați contul de utilizator",
+    "btn_text": "Salva"
+  },
+  "book_fields": {
+    "title": "Adăuga / Editați produs",
+    "b_title": "Titlu",
+    "b_author": "Autor",
+    "b_cover": "Acoperi",
+    "b_price": "Preț",
+    "b_promotion": "Promovare",
+    "btn_text": "Salva"
+  }
+}

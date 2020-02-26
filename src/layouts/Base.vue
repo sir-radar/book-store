@@ -5,7 +5,7 @@
         <div class="" v-if="authUser !== '' && authUser.role === 'Admin'">
           <p>{{ $t('admin_link.welcome') }}, {{ authUser.username }} <router-link to="/admin">{{ $t('admin_link.admin_panel') }}</router-link></p>
         </div>
-         <select-language></select-language>
+         <select-language :currentLang="lang" @changeLang="changeLang"></select-language>
       </div>
     </div>
     <div class="row">
@@ -23,20 +23,28 @@
   </section>
 </template>
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
+import i18n from '../i18n'
 export default {
-  name: 'Base',
+  name: 'BaseLayout',
   components: {
     SelectLanguage: () => import('@/components/LanguageSelect'),
     Menu: () => import('@/components/Menu'),
     Notify: () => import('@/components/Notify'),
     Footer: () => import('@/components/Footer')
   },
-  data () {
-    return {}
+  mounted () {
+    i18n.locale = this.lang
+  },
+  methods: {
+    ...mapMutations(['setLang']),
+    changeLang (lang) {
+      i18n.locale = lang
+      this.setLang(lang)
+    }
   },
   computed: {
-    ...mapState(['authUser', 'notify'])
+    ...mapState(['authUser', 'notify', 'lang'])
   }
 }
 </script>
