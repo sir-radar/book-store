@@ -13,7 +13,7 @@ export default {
   name: 'LanguageSelect',
   data () {
     return {
-      lang: ''
+      lang: 'en'
     }
   },
   methods: {

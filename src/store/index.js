@@ -36,11 +36,19 @@ export default new Vuex.Store({
     },
     setUsers (state, users) {
       state.users = users
+    },
+    removeUser (state, id) {
+      const index = state.users.findIndex(user => user.id === id)
+      state.users.splice(index, 1)
+    },
+    removeBook (state, id) {
+      const index = state.books.findIndex(book => book.id === id)
+      state.books.splice(index, 1)
     }
   },
   actions: {
-    async login ({ commit }, crendencials) {
-      const response = await axios.post('/api/login', crendencials)
+    async login ({ commit }, credentials) {
+      const response = await axios.post('/api/login', credentials)
       if (response.data.error) {
         commit('setLoginError', response.data.error)
         return
@@ -48,13 +56,18 @@ export default new Vuex.Store({
       commit('setAuthUser', response.data)
       router.push('/')
     },
-    async createAccount ({ commit }, crendencials) {
-      const response = await axios.post('/api/user', crendencials)
-      console.log(response)
+    async createAccount ({ dispatch }, credentials) {
+      const response = await axios.post('/api/user', credentials)
+      dispatch('login', response.data.user)
     },
-    async updateAccount ({ commit }, crendencials) {
-      const response = await axios.patch(`/api/users/${crendencials.id}`, crendencials)
-      console.log(response)
+    async updateAccount ({ commit }, credentials) {
+      await axios.patch(`/api/users/${credentials.id}`, credentials)
+    },
+    async createBook ({ commit }, credentials) {
+      await axios.post('/api/book', credentials)
+    },
+    async updateBook ({ commit }, credentials) {
+      await axios.patch(`/api/books/${credentials.id}`, credentials)
     },
     async getBooks ({ commit }) {
       const response = await axios.get('/api/books')
@@ -63,6 +76,18 @@ export default new Vuex.Store({
     async getUsers ({ commit }) {
       const response = await axios.get('/api/users')
       commit('setUsers', response.data.users)
+    },
+    async deleteBook ({ commit }, id) {
+      const response = await axios.delete(`/api/book/${id}`)
+      if (response.data.message === 'Success') {
+        commit('removeBook', id)
+      }
+    },
+    async deleteUser ({ commit }, id) {
+      const response = await axios.delete(`/api/user/${id}`)
+      if (response.data.message === 'Success') {
+        commit('removeUser', id)
+      }
     }
   },
   modules: {

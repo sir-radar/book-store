@@ -57,6 +57,7 @@ const routes = [
       },
       {
         path: 'edit-book/:id',
+        name: 'bookEdit',
         component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/AddOrEditBook.vue'),
         meta: { requiresAuth: true }
       },

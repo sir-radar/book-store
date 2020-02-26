@@ -9,13 +9,13 @@
         <div class="form-group row">
           <label for="inputUsername" class="col-sm-4 col-form-label">Username</label>
           <div class="col-sm-8">
-            <input v-model="credencials.username" type="text" class="form-control" id="inputUsername" required>
+            <input v-model="credentials.username" type="text" class="form-control" id="inputUsername" required>
           </div>
         </div>
         <div class="form-group row">
           <label for="inputPassword" class="col-sm-4 col-form-label">Password</label>
           <div class="col-sm-8">
-            <input v-model="credencials.password" type="password" class="form-control" id="inputPassword" required>
+            <input v-model="credentials.password" type="password" class="form-control" id="inputPassword" required>
           </div>
         </div>
         <div class="form-group row">
@@ -27,22 +27,22 @@
         <div class="form-group row">
           <label for="inputLastName" class="col-sm-4 col-form-label">Last Name</label>
           <div class="col-sm-8">
-            <input v-model="credencials.lastName" type="text" class="form-control" id="inputLastName" required>
+            <input v-model="credentials.lastName" type="text" class="form-control" id="inputLastName" required>
           </div>
         </div>
         <div class="form-group row">
           <label for="inputFirstName" class="col-sm-4 col-form-label">First Name</label>
           <div class="col-sm-8">
-            <input v-model="credencials.firstName" type="text" class="form-control" id="inputFirstName" required>
+            <input v-model="credentials.firstName" type="text" class="form-control" id="inputFirstName" required>
           </div>
         </div>
         <div class="form-group row">
           <label for="inputEmail" class="col-sm-4 col-form-label">Email</label>
           <div class="col-sm-8">
-            <input v-model="credencials.email" type="email" class="form-control" id="inputEmail" required>
+            <input v-model="credentials.email" type="email" class="form-control" id="inputEmail" required>
           </div>
         </div>
-        <button :disabled="credencials.password !== confirmPassword" type="submit" class="btn btn-primary float-right">Save</button>
+        <button :disabled="credentials.password !== confirmPassword" type="submit" class="btn btn-primary float-right">Save</button>
       </form>
     </div>
   </div>
@@ -58,12 +58,12 @@ export default {
     }
     const user = this.users.filter((user) => user.id === this.$route.params.id)
     if (user.length > 0) {
-      this.credencials = user[0]
+      this.credentials = user[0]
     }
   },
   data () {
     return {
-      credencials: {
+      credentials: {
         username: '',
         password: '',
         firstName: '',
@@ -77,7 +77,7 @@ export default {
   methods: {
     ...mapActions(['getUsers', 'updateAccount']),
     async submit () {
-      await this.updateAccount(this.credencials)
+      await this.updateAccount(this.credentials)
       this.$router.go(-1)
     }
   },

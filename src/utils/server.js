@@ -53,8 +53,8 @@ export default new Server({
     })
 
     this.post('/api/book', (schema, request) => {
-      const newbBook = JSON.parse(request.requestBody)
-      return schema.books.insert(newbBook)
+      const newBook = JSON.parse(request.requestBody)
+      return schema.books.create(newBook)
     })
 
     this.patch('/api/books/:id', (schema, request) => {
@@ -63,13 +63,18 @@ export default new Server({
       return book.update(editedBook)
     })
 
+    this.del('/api/book/:id', (schema, request) => {
+      schema.books.find(request.params.id).destroy()
+      return { message: 'Success' }
+    })
+
     // auth routes
     this.post('/api/login', (schema, request) => {
       const userDetails = JSON.parse(request.requestBody)
       const user = schema.users.findBy({ username: userDetails.username, password: userDetails.password })
       if (user === null) {
         return {
-          error: 'User not found'
+          error: 'User does not exist'
         }
       }
       return {
@@ -95,6 +100,11 @@ export default new Server({
       const editedUser = JSON.parse(request.requestBody)
       const user = schema.users.find(request.params.id)
       return user.update(editedUser)
+    })
+
+    this.del('/api/user/:id', (schema, request) => {
+      schema.users.find(request.params.id).destroy()
+      return { message: 'Success' }
     })
   }
 })

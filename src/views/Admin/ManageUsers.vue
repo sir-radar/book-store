@@ -1,8 +1,10 @@
 <template>
   <div class="row">
     <div class="col-md-12">
-      <h1 class="text-left">Manage Users</h1>
-
+      <div class="row mb-5">
+        <button class="p-1 mr-4 rounded" @click.prevent="$router.go(-1)">Prev page</button>
+        <h1 class="text-left">Manage Users</h1>
+      </div>
       <b-table
         :data="users"
         :bordered="true"
@@ -28,7 +30,7 @@
             <b-table-column label="Options">
                 <router-link :to="{ name: 'userEdit', params: { id: `${props.row.id}` } }">Edit</router-link>
                 <span class="m-1">-</span>
-                <a href="#">Delete</a>
+                <a href="#" @click.prevent="deleteUser(props.row.id)">Delete</a>
             </b-table-column>
         </template>
       </b-table>
@@ -44,7 +46,7 @@ export default {
     await this.getUsers()
   },
   methods: {
-    ...mapActions(['getUsers'])
+    ...mapActions(['getUsers', 'deleteUser'])
   },
   computed: {
     ...mapState(['users'])
