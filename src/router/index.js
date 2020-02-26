@@ -37,40 +37,50 @@ const routes = [
     children: [
       {
         path: '',
-        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/Dashboard.vue'),
+        component: () => import(/* webpackChunkName: "dashboard" */ '../views/Admin/Dashboard.vue'),
         meta: { requiresAuth: true }
       },
       {
         path: 'manage-books',
-        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/ManageBooks.vue'),
+        component: () => import(/* webpackChunkName: "manageBooks" */ '../views/Admin/ManageBooks.vue'),
         meta: { requiresAuth: true }
       },
       {
         path: 'manage-users',
-        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/ManageUsers.vue'),
+        component: () => import(/* webpackChunkName: "manageUsers" */ '../views/Admin/ManageUsers.vue'),
         meta: { requiresAuth: true }
       },
       {
         path: 'manage-orders',
-        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/ManageOrders.vue'),
+        component: () => import(/* webpackChunkName: "manageOrders" */ '../views/Admin/ManageOrders.vue'),
         meta: { requiresAuth: true }
       },
       {
         path: 'edit-book/:id',
         name: 'bookEdit',
-        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/AddOrEditBook.vue'),
+        component: () => import(/* webpackChunkName: "editBook" */ '../views/Admin/AddOrEditBook.vue'),
         meta: { requiresAuth: true }
       },
       {
         path: 'add-book',
-        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/AddOrEditBook.vue'),
+        component: () => import(/* webpackChunkName: "addBook" */ '../views/Admin/AddOrEditBook.vue'),
         meta: { requiresAuth: true }
       },
       {
         path: 'edit-user/:id',
         name: 'userEdit',
-        component: () => import(/* webpackChunkName: "signup" */ '../views/Admin/EditUser.vue'),
+        component: () => import(/* webpackChunkName: "editUser" */ '../views/Admin/EditUser.vue'),
         meta: { requiresAuth: true }
+      }
+    ]
+  },
+  {
+    path: '*',
+    component: Base,
+    children: [
+      {
+        path: '',
+        component: () => import(/* webpackChunkName: "signup" */ '../views/NotFound.vue')
       }
     ]
   }
