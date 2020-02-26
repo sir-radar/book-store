@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-8">
       <h1 class="text-left">{{ $t('store.title') }}</h1>
       <BookCard
         v-for="(book, index) in books"
