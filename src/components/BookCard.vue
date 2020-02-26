@@ -9,7 +9,7 @@
       <p>{{ book.date }}</p>
     </div>
     <div class="col-md-3">
-      <a href="#" @click.prevent="orderBook">Buy Now</a>
+      <a href="#" @click.prevent="orderBook">{{ $t('home.buy_now') }}</a>
     </div>
   </div>
 </template>

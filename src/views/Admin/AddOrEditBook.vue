@@ -1,49 +1,51 @@
 <template>
   <div class="signup row">
-    <div class="col-md-6">
+    <div class="col-md-10">
       <div class="row">
-        <button class="p-1 mr-4 rounded" @click.prevent="$router.go(-1)">Prev page</button>
-        <h1 class="text-left">Add / Edit product</h1>
+        <BackButton/>
+        <h1 class="text-left">{{ $t('book_fields.title') }}</h1>
       </div>
-      <form @submit.prevent="submit" class="mt-5">
-        <div class="form-group row">
-          <label for="inputTitle" class="col-sm-4 col-form-label">Title</label>
-          <div class="col-sm-8">
-            <input v-model="credentials.title" type="text" class="form-control" id="inputTitle" required>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputAuthor" class="col-sm-4 col-form-label">Author</label>
-          <div class="col-sm-8">
-            <input v-model="credentials.author" type="text" class="form-control" id="inputAuthor" required>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputCover" class="col-sm-4 col-form-label">Cover</label>
-          <div class="col-sm-8">
-            <input type="file" @change="onFileChange" style="display:none" ref="fileInput" :required="$route.params.id === null">
-            <div
-              @click="$refs.fileInput.click()"
-              class="cover-image-wrapper p-1 rounded border bg-secondary"
-              :style="{ backgroundImage: 'url(' + credentials.image + ')'}"
-              >
+      <div class="col-md-8">
+        <form @submit.prevent="submit" class="mt-5">
+          <div class="form-group row">
+            <label for="inputTitle" class="col-sm-4 col-form-label">{{ $t('book_fields.b_title') }}</label>
+            <div class="col-sm-8">
+              <input v-model="credentials.title" type="text" class="form-control" id="inputTitle" required>
             </div>
           </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputPrice" class="col-sm-4 col-form-label">Price</label>
-          <div class="col-sm-8">
-            <input v-model="credentials.price" type="number" class="form-control" id="inputPrice" required>
+          <div class="form-group row">
+            <label for="inputAuthor" class="col-sm-4 col-form-label">{{ $t('book_fields.b_author') }}</label>
+            <div class="col-sm-8">
+              <input v-model="credentials.author" type="text" class="form-control" id="inputAuthor" required>
+            </div>
           </div>
-        </div>
-        <div class="form-group row">
-          <label for="promotions" class="col-sm-4 col-form-label">Promotion</label>
-          <div class="col-sm-8">
-            <input v-model="credentials.promotion" type="checkbox" class="" id="promotions">
+          <div class="form-group row">
+            <label for="inputCover" class="col-sm-4 col-form-label">{{ $t('book_fields.b_cover') }}</label>
+            <div class="col-sm-8">
+              <input type="file" @change="onFileChange" style="display:none" ref="fileInput" :required="$route.params.id === null">
+              <div
+                @click="$refs.fileInput.click()"
+                class="cover-image-wrapper p-1 rounded border bg-secondary"
+                :style="{ backgroundImage: 'url(' + credentials.image + ')'}"
+                >
+              </div>
+            </div>
           </div>
-        </div>
-        <button type="submit" class="btn btn-primary float-right">Save</button>
-      </form>
+          <div class="form-group row">
+            <label for="inputPrice" class="col-sm-4 col-form-label">{{ $t('book_fields.b_price') }}</label>
+            <div class="col-sm-8">
+              <input v-model="credentials.price" type="number" class="form-control" id="inputPrice" required>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="promotions" class="col-sm-4 col-form-label">{{ $t('book_fields.b_promotion') }}</label>
+            <div class="col-sm-8">
+              <input v-model="credentials.promotion" type="checkbox" class="" id="promotions">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary float-right">{{ $t('book_fields.btn_text') }}</button>
+        </form>
+      </div>
     </div>
   </div>
 </template>
@@ -51,6 +53,9 @@
 import { mapActions, mapState } from 'vuex'
 export default {
   name: 'EditBookPage',
+  components: {
+    BackButton: () => import('@/components/BackButton')
+  },
   async mounted () {
     // checks if we are trying to edit a book
     // id would exist if we are trying to edit

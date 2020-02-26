@@ -1,3 +1,84 @@
 {
-  "message": "hello i18n !!"
+  "menu": {
+    "home": "Home",
+    "about": "About",
+    "store": "Store",
+    "login": "LogIn",
+    "logout": "LogOut"
+  },
+  "home": {
+    "recent_books": "Recently added books",
+    "promotions": "Special offers",
+    "buy_now": "Buy Now"
+  },
+  "about": {
+    "title": "About us",
+    "content": "With over 20 years of procurement and book selling experience, Active Learning Online Store has grown to be a first point of call in Europe for any procurement services for libraries, stores and archives all over Europe. A company that has great affiliations and partnerships with various international renowned companies in the area of library and archiving development, Active Learning Online Store clearly understands the business of international books and library equipment procurement and supply. We have successfully handled financially demanding projects like the ETF, World-Bank, PTF and others for institutions in Nigeria which confirms our stable financial status. We provide competitive pricing for our books based on verifiable published prices.With us, you get accurate, efficient, and timely response, supported by detailed knowledge of the documentary requirements to ensure trouble-free delivery."
+  },
+  "store": {
+    "title": "Inventory"
+  },
+  "login": {
+    "title": "Login",
+    "have_account": "Don't have an account?",
+    "sign_up": "Signup",
+    "btn_text": "Sign in"
+  },
+  "signup": {
+    "title": "Create an account",
+    "btn_text": "Create Account"
+  },
+  "auth":{
+    "username": "Username",
+    "password": "Password",
+    "c_password": "Confirm Password",
+    "l_name": "Last Name",
+    "f_name": "First Name",
+    "email": "Email"
+  },
+  "admin_link": {
+    "welcome": "Welcome",
+    "admin_panel": "Admin Panel"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "manage_users": "Manage users",
+    "manage_books": "Manage books",
+    "manage_orders": "Manage orders"
+  },
+  "util": {
+    "prev_btn": "Prev page",
+    "add_btn": "Add book"
+  },
+  "table": {
+    "id": "ID",
+    "l_name": "Last Name",
+    "f_name": "First Name",
+    "email": "Email",
+    "title": "Title",
+    "author": "Author",
+    "date": "Date",
+    "option": "Options",
+    "edit": "Edit",
+    "delete": "Delete",
+    "customer": "Customer",
+    "book": "Book"
+  },
+  "notify": {
+    "error_message": "Please sign in to buy books",
+    "success_message": "Book bought successfully"
+  },
+  "edit_acct": {
+    "title": "Edit user account",
+    "btn_text": "Save"
+  },
+  "book_fields": {
+    "title": "Add / Edit product",
+    "b_title": "Title",
+    "b_author": "Author",
+    "b_cover": "Cover",
+    "b_price": "Price",
+    "b_promotion": "Promotion",
+    "btn_text": "Save"
+  }
 }

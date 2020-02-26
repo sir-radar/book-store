@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-md-6">
-      <h4 class="text-left">Recently added books</h4>
+      <h4 class="text-left">{{ $t('home.recent_books') }}</h4>
       <BookCard
         v-for="(book, index) in books"
         :key="index"
@@ -11,7 +11,7 @@
       />
     </div>
     <div class="col-md-6">
-      <h4>Special offers</h4>
+      <h4>{{ $t('home.promotions') }}</h4>
       <BookCard
         v-for="(book, index) in promotions"
         :key="index"
@@ -43,12 +43,12 @@ export default {
         await this.createOrder(credentials)
         this.showNotify({
           type: 'success',
-          message: 'Book bought successfully'
+          message: this.$t('notify.success_message')
         })
       } else {
         this.showNotify({
           type: 'danger',
-          message: 'Please sign in to buy books'
+          message: this.$t('notify.error_message')
         })
       }
     }

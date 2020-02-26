@@ -1,3 +1,84 @@
 {
-  "message": "Bonjour i18n !!"
+  "menu": {
+    "home": "Accueil",
+    "about": "Sur",
+    "store": "Boutique",
+    "login": "S'identifier",
+    "logout": "Déconnecter"
+  },
+  "home": {
+    "recent_books": "Livres récemment ajoutés",
+    "promotions": "Offres spéciales",
+    "buy_now": "Acheter"
+  },
+  "about": {
+    "title": "À propos de nous",
+    "content": "Avec plus de 20 ans d'expérience dans les achats et la vente de livres, Active Learning Online Store est devenu le premier point d'appel en Europe pour tous les services d'approvisionnement pour les bibliothèques, magasins et archives dans toute l'Europe. Une entreprise qui a de grandes affiliations et des partenariats avec diverses entreprises de renommée internationale dans le domaine du développement de bibliothèques et d'archivage, Active Learning Online Store comprend clairement le commerce international de livres et d'équipement et de fournitures d'équipement de bibliothèque. Nous avons géré avec succès des projets financièrement exigeants comme l'ETF, la Banque mondiale, le PTF et d'autres pour des institutions au Nigéria, ce qui confirme notre situation financière stable. Nous proposons des prix compétitifs pour nos livres sur la base de prix publiés vérifiables.Avec nous, vous obtenez une réponse précise, efficace et rapide, soutenue par une connaissance détaillée des exigences documentaires pour assurer une livraison sans problème."
+  },
+  "store": {
+    "title": "Inventaire"
+  },
+  "login": {
+    "title": "S'identifier",
+    "have_account": "Vous n'avez pas de compte?",
+    "sign_up": "S'inscrire",
+    "btn_text": "se connecter"
+  },
+  "signup": {
+    "title": "Créer un compte",
+    "btn_text": "Créer un compte"
+  },
+  "auth":{
+    "username": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "c_password": "Confirmez le mot de passe",
+    "l_name": "Nom de famille",
+    "f_name": "Prénom",
+    "email": "Email"
+  },
+  "admin_link": {
+    "welcome": "Bonjour",
+    "admin_panel": "panneau d'administration"
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "manage_users": "Gérer les utilisateurs",
+    "manage_books": "Gérer des livres",
+    "manage_orders": "Gérer les commandes"
+  },
+  "util": {
+    "prev_btn": "Page précédente",
+    "add_btn": "Ajouter un livre"
+  },
+  "table": {
+    "id": "ID",
+    "l_name": "Nom de famille",
+    "f_name": "Prénom",
+    "email": "Email",
+    "title": "Titre",
+    "author": "Auteur",
+    "date": "Date",
+    "option": "Les options",
+    "edit": "Éditer",
+    "delete": "Supprimer",
+    "customer": "Client",
+    "book": "Livre"
+  },
+  "notify": {
+    "error_message": "Veuillez vous connecter pour acheter des livres",
+    "success_message": "Livre acheté avec succès"
+  },
+  "edit_acct": {
+    "title": "Modifier le compte utilisateur",
+    "btn_text": "sauvegarder"
+  },
+  "book_fields": {
+    "title": "Ajouter / Éditer produit",
+    "b_title": "Titre",
+    "b_author": "Auteur",
+    "b_cover": "Couverture",
+    "b_price": "Prix",
+    "b_promotion": "Promotion",
+    "btn_text": "sauvegarder"
+  }
 }

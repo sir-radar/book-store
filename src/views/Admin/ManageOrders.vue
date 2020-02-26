@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-md-12">
       <div class="row mb-5">
-        <button class="p-1 mr-4 rounded" @click.prevent="$router.go(-1)">Prev page</button>
-        <h1 class="text-left">Manage Orders</h1>
+        <BackButton/>
+        <h1 class="text-left">{{ $t('dashboard.manage_orders') }}</h1>
       </div>
       <b-table
         :data="orders"
@@ -13,27 +13,26 @@
         >
 
         <template slot-scope="props">
-            <b-table-column field="id" label="ID" width="40" numeric>
+            <b-table-column field="id" :label="$t('table.id')" width="40" numeric>
                 {{ props.row.id }}
             </b-table-column>
 
-            <b-table-column field="book" label="Book">
+            <b-table-column field="book" :label="$t('table.book')">
                 {{ props.row.book }}
             </b-table-column>
 
-            <b-table-column field="customer" label="Customer">
+            <b-table-column field="customer" :label="$t('table.customer')">
                 {{ props.row.user.lastName }} {{ props.row.user.firstName }}
             </b-table-column>
 
-            <b-table-column field="date" label="Date" centered>
+            <b-table-column field="date" :label="$t('table.date')" centered>
                 {{ props.row.date }}
             </b-table-column>
 
             <b-table-column label="Options">
-                <!-- <router-link :to="{ name: 'bookEdit', params: { id: `${props.row.id}` } }">Edit</router-link> -->
-                <a href="#">Edit</a>
+                <a href="#">{{ $t('table.edit') }}</a>
                 <span class="m-1">-</span>
-                <a href="#" @click.prevent="deleteOrder(props.row.id)">Delete</a>
+                <a href="#" @click.prevent="deleteOrder(props.row.id)">{{ $t('table.delete') }}</a>
             </b-table-column>
         </template>
       </b-table>
@@ -45,6 +44,9 @@
 import { mapActions, mapState } from 'vuex'
 export default {
   name: 'ManageOrders',
+  components: {
+    BackButton: () => import('@/components/BackButton')
+  },
   async mounted () {
     this.loading = true
     await this.getOrders()

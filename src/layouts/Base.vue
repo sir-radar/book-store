@@ -3,7 +3,7 @@
     <div class="row">
       <div class="d-flex justify-content-end align-items-center col-12">
         <div class="" v-if="authUser !== '' && authUser.role === 'Admin'">
-          <p>Welcome, {{ authUser.username }} <router-link to="/admin">Admin Panel</router-link></p>
+          <p>{{ $t('admin_link.welcome') }}, {{ authUser.username }} <router-link to="/admin">{{ $t('admin_link.admin_panel') }}</router-link></p>
         </div>
          <select-language></select-language>
       </div>

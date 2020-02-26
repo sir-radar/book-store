@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-md-12">
       <div class="row mb-5">
-        <button class="p-1 mr-4 rounded" @click.prevent="$router.go(-1)">Prev page</button>
-        <h1 class="text-left">Manage Users</h1>
+        <BackButton/>
+        <h1 class="text-left">{{ $t('dashboard.manage_users') }}</h1>
       </div>
       <b-table
         :data="users"
@@ -12,26 +12,26 @@
         :loading="loading">
 
         <template slot-scope="props">
-            <b-table-column field="id" label="ID" width="40" numeric>
+            <b-table-column field="id" :label="$t('table.id')" width="40" numeric>
                 {{ props.row.id }}
             </b-table-column>
 
-            <b-table-column field="first_name" label="First Name">
+            <b-table-column field="first_name" :label="$t('table.f_name')">
                 {{ props.row.firstName }}
             </b-table-column>
 
-            <b-table-column field="last_name" label="Last Name">
+            <b-table-column field="last_name" :label="$t('table.l_name')">
                 {{ props.row.lastName }}
             </b-table-column>
 
-            <b-table-column field="email" label="Email" centered>
+            <b-table-column field="email" :label="$t('table.email')" centered>
                 {{ props.row.email }}
             </b-table-column>
 
             <b-table-column label="Options">
-                <router-link :to="{ name: 'userEdit', params: { id: `${props.row.id}` } }">Edit</router-link>
+                <router-link :to="{ name: 'userEdit', params: { id: `${props.row.id}` } }">{{ $t('table.edit') }}</router-link>
                 <span class="m-1">-</span>
-                <a href="#" @click.prevent="deleteUser(props.row.id)">Delete</a>
+                <a href="#" @click.prevent="deleteUser(props.row.id)">{{ $t('table.delete') }}</a>
             </b-table-column>
         </template>
       </b-table>
@@ -43,6 +43,9 @@
 import { mapActions, mapState } from 'vuex'
 export default {
   name: 'ManageUsers',
+  components: {
+    BackButton: () => import('@/components/BackButton')
+  },
   async mounted () {
     this.loading = true
     await this.getUsers()

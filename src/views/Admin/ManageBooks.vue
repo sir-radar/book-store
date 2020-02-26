@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-md-12">
       <div class="row mb-5">
-        <button class="p-1 mr-4 rounded" @click.prevent="$router.go(-1)">Prev page</button>
-        <h1 class="text-left">Manage Books</h1>
-        <button class="ml-auto rounded" @click.prevent="$router.push('/admin/add-book')">Add book</button>
+        <BackButton/>
+        <h1 class="text-left">{{ $t('dashboard.manage_books') }}</h1>
+        <button class="ml-auto rounded" @click.prevent="$router.push('/admin/add-book')">{{ $t('util.add_btn') }}</button>
       </div>
       <b-table
         :data="books"
@@ -13,26 +13,26 @@
         :loading="loading">
 
         <template slot-scope="props">
-            <b-table-column field="id" label="ID" width="40" numeric>
+            <b-table-column field="id" :label="$t('table.id')" width="40" numeric>
                 {{ props.row.id }}
             </b-table-column>
 
-            <b-table-column field="title" label="Title">
+            <b-table-column field="title" :label="$t('table.title')">
                 {{ props.row.title }}
             </b-table-column>
 
-            <b-table-column field="author" label="Author">
+            <b-table-column field="author" :label="$t('table.author')">
                 {{ props.row.author }}
             </b-table-column>
 
-            <b-table-column field="date" label="Date" centered>
+            <b-table-column field="date" :label="$t('table.date')" centered>
                 {{ props.row.date }}
             </b-table-column>
 
             <b-table-column label="Options">
-                <router-link :to="{ name: 'bookEdit', params: { id: `${props.row.id}` } }">Edit</router-link>
+                <router-link :to="{ name: 'bookEdit', params: { id: `${props.row.id}` } }">{{ $t('table.edit') }}</router-link>
                 <span class="m-1">-</span>
-                <a href="#" @click.prevent="deleteBook(props.row.id)">Delete</a>
+                <a href="#" @click.prevent="deleteBook(props.row.id)">{{ $t('table.delete') }}</a>
             </b-table-column>
         </template>
       </b-table>
@@ -44,6 +44,9 @@
 import { mapActions, mapState } from 'vuex'
 export default {
   name: 'ManageBooks',
+  components: {
+    BackButton: () => import('@/components/BackButton')
+  },
   async mounted () {
     this.loading = true
     await this.getBooks()
