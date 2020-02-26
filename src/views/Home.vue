@@ -6,6 +6,8 @@
         v-for="(book, index) in books"
         :key="index"
         :book="book"
+        :createOrder="createOrder"
+        :customerId="authUser.id"
       />
     </div>
     <div class="col-md-6">
@@ -25,10 +27,10 @@ export default {
     await this.getBooks()
   },
   methods: {
-    ...mapActions(['getBooks'])
+    ...mapActions(['getBooks', 'createOrder'])
   },
   computed: {
-    ...mapState(['books'])
+    ...mapState(['books', 'authUser'])
   }
 }
 </script>

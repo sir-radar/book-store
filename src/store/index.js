@@ -18,7 +18,8 @@ export default new Vuex.Store({
     authUser: '',
     error: '',
     books: [],
-    users: []
+    users: [],
+    orders: []
   },
   mutations: {
     setAuthUser (state, payload) {
@@ -44,6 +45,13 @@ export default new Vuex.Store({
     removeBook (state, id) {
       const index = state.books.findIndex(book => book.id === id)
       state.books.splice(index, 1)
+    },
+    setOrder (state, orders) {
+      state.orders = orders
+    },
+    removeOrder (state, id) {
+      const index = state.orders.findIndex(order => order.id === id)
+      state.orders.splice(index, 1)
     }
   },
   actions: {
@@ -87,6 +95,20 @@ export default new Vuex.Store({
       const response = await axios.delete(`/api/user/${id}`)
       if (response.data.message === 'Success') {
         commit('removeUser', id)
+      }
+    },
+    async createOrder ({ commit }, credentials) {
+      const response = await axios.post('/api/order', credentials)
+      console.log(response)
+    },
+    async getOrders ({ commit }) {
+      const response = await axios.get('/api/orders?include=user')
+      commit('setOrder', response.data.orders)
+    },
+    async deleteOrder ({ commit }, id) {
+      const response = await axios.delete(`/api/order/${id}`)
+      if (response.data.message === 'Success') {
+        commit('removeOrder', id)
       }
     }
   },

@@ -43,7 +43,14 @@ import { mapActions, mapState } from 'vuex'
 export default {
   name: 'ManageUsers',
   async mounted () {
+    this.loading = true
     await this.getUsers()
+    this.loading = false
+  },
+  data () {
+    return {
+      loading: false
+    }
   },
   methods: {
     ...mapActions(['getUsers', 'deleteUser'])

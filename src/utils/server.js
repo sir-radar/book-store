@@ -1,10 +1,18 @@
-import { Server, Model, Factory } from 'miragejs'
+import { Server, Model, Factory, JSONAPISerializer, hasMany, belongsTo } from 'miragejs'
 import faker from 'faker'
 
 export default new Server({
   models: {
-    user: Model,
-    book: Model
+    user: Model.extend({
+      orders: hasMany()
+    }),
+    book: Model,
+    order: Model.extend({
+      user: belongsTo()
+    })
+  },
+  serializers: {
+    application: JSONAPISerializer
   },
   factories: {
     book: Factory.extend({
@@ -18,9 +26,7 @@ export default new Server({
       date () {
         return faker.date.recent().toLocaleDateString()
       },
-      image () {
-        return faker.image.business()
-      }
+      image: process.env.VUE_APP_BOOK_COVER || '/img/cover2.97f2c218.jpg'
     })
   },
   seeds (server) {
@@ -42,6 +48,18 @@ export default new Server({
           username: 'will',
           password: 'secret',
           role: 'User'
+        }
+      ],
+      orders: [
+        {
+          book: 'Yell all you want',
+          date: '1/2/2020',
+          userId: '1'
+        },
+        {
+          book: 'Never let go',
+          date: '5/2/2020',
+          userId: '2'
         }
       ]
     })
@@ -104,6 +122,32 @@ export default new Server({
 
     this.del('/api/user/:id', (schema, request) => {
       schema.users.find(request.params.id).destroy()
+      return { message: 'Success' }
+    })
+
+    // order routes
+    this.get('/api/orders', (schema) => {
+      const orders = schema.orders.all()
+      const data = orders.models.map(order => {
+        return {
+          id: order.id,
+          book: order.book,
+          date: order.date,
+          user: order.user
+        }
+      })
+      return {
+        orders: data
+      }
+    })
+
+    this.post('/api/order', (schema, request) => {
+      const newOrder = JSON.parse(request.requestBody)
+      return schema.orders.create(newOrder)
+    })
+
+    this.del('/api/order/:id', (schema, request) => {
+      schema.orders.find(request.params.id).destroy()
       return { message: 'Success' }
     })
   }

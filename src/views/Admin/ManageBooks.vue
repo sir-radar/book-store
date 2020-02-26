@@ -4,7 +4,7 @@
       <div class="row mb-5">
         <button class="p-1 mr-4 rounded" @click.prevent="$router.go(-1)">Prev page</button>
         <h1 class="text-left">Manage Books</h1>
-         <button class="ml-auto rounded" @click.prevent="$router.push('/admin/add-book')">Add book</button>
+        <button class="ml-auto rounded" @click.prevent="$router.push('/admin/add-book')">Add book</button>
       </div>
       <b-table
         :data="books"
@@ -44,7 +44,14 @@ import { mapActions, mapState } from 'vuex'
 export default {
   name: 'ManageBooks',
   async mounted () {
+    this.loading = true
     await this.getBooks()
+    this.loading = false
+  },
+  data () {
+    return {
+      loading: false
+    }
   },
   methods: {
     ...mapActions(['getBooks', 'deleteBook'])

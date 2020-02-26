@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex align-items-center justify-content-between col-12 px-0">
     <div class="book-cover col-md-5 mb-2 px-0">
-      <img class="" src="../assets/cover2.jpg" alt="">
+      <img class="" :src="book.image" alt="">
       <h5 class="">{{ book.title }}</h5>
     </div>
     <div class="author-details col-md-4">
@@ -9,7 +9,7 @@
       <p>{{ book.date }}</p>
     </div>
     <div class="col-md-3">
-      <a href="#">Buy Now</a>
+      <a href="#" @click.prevent="orderBook">Buy Now</a>
     </div>
   </div>
 </template>
@@ -17,6 +17,20 @@
 <script>
 export default {
   name: 'BookCard',
-  props: { book: Object }
+  props: {
+    book: Object,
+    createOrder: Function,
+    customerId: String
+  },
+  methods: {
+    async orderBook () {
+      const credentials = {
+        book: this.book.title,
+        date: new Date().toLocaleDateString,
+        customer: this.customerId
+      }
+      await this.createOrder(credentials)
+    }
+  }
 }
 </script>
