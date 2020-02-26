@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-8 offset-7">
+      <div class="col-8 offset-sm-3 offset-md-7">
          <Menu/>
       </div>
     </div>
