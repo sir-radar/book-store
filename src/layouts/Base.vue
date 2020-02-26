@@ -38,6 +38,7 @@ export default {
   },
   methods: {
     ...mapMutations(['setLang']),
+    // change language to the selected language
     changeLang (lang) {
       i18n.locale = lang
       this.setLang(lang)

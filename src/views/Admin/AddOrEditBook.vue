@@ -85,6 +85,7 @@ export default {
   methods: {
     ...mapActions(['getBooks', 'updateBook', 'createBook']),
     async submit () {
+      // check if to edit or create a book by checking if id exists in the route
       if (this.$route.params.id) {
         await this.updateBook(this.credentials)
       } else {
@@ -97,6 +98,7 @@ export default {
       if (!files.length) return
       this.createImage(files[0])
     },
+    // create a base64 image file
     createImage (file) {
       var reader = new FileReader()
       reader.onload = (e) => {

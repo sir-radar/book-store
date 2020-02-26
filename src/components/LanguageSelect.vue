@@ -21,6 +21,7 @@ export default {
   },
   methods: {
     changeLang () {
+      // emit change language event
       this.$emit('changeLang', this.lang)
     }
   }

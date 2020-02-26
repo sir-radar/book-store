@@ -28,6 +28,7 @@ export default {
         date: new Date().toLocaleDateString(),
         userId: this.customerId
       }
+      // emit buyBook event
       this.$emit('buyBook', credentials)
     }
   }

@@ -57,6 +57,7 @@ export default {
     BackButton: () => import('@/components/BackButton')
   },
   async mounted () {
+    // check if user exist in the store, if not fetch users.
     const check = this.users.some((user) => user.id === this.$route.params.id)
     if (!check) {
       await this.getUsers()
