@@ -55,6 +55,7 @@ export default {
   },
   computed: {
     ...mapState(['books', 'authUser']),
+    // filter out books with special promotions
     promotions () {
       return this.books.filter(book => book.promotion === true)
     }

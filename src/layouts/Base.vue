@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section class="base container">
     <div class="row">
       <div class="d-flex justify-content-end align-items-center col-12">
         <div class="" v-if="authUser !== '' && authUser.role === 'Admin'">
@@ -19,6 +19,7 @@
     </div>
     <router-view/>
     <Notify v-if="notify.type" :notify="notify"/>
+    <Footer />
   </section>
 </template>
 <script>
@@ -28,7 +29,8 @@ export default {
   components: {
     SelectLanguage: () => import('@/components/LanguageSelect'),
     Menu: () => import('@/components/Menu'),
-    Notify: () => import('@/components/Notify')
+    Notify: () => import('@/components/Notify'),
+    Footer: () => import('@/components/Footer')
   },
   data () {
     return {}
@@ -39,6 +41,11 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.base{
+  min-height: 98vh;
+  display: flex;
+  flex-direction: column;
+}
 .logo{
   width: 12%;
 }

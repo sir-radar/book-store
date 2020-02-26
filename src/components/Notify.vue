@@ -1,6 +1,9 @@
 <template>
-  <div class="notify col-md-3 text-white text-center rounded" :class="{'bg-danger': notify.type == 'danger', 'bg-success': notify.type == 'success'}">
-    Hello {{ notify.message }}
+  <div
+    class="notify col-md-3 text-white text-center rounded"
+    :class="{'bg-danger': notify.type == 'danger', 'bg-success': notify.type == 'success'}"
+    >
+    {{ notify.message }}
   </div>
 </template>
 

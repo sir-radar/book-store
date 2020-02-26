@@ -1,5 +1,5 @@
 <template>
-  <div class="login row">
+  <div class="login max-vh-100 row">
     <div class="col-md-6">
       <h1 class="text-left">Login</h1>
       <form @submit.prevent="login(credentials)" class="mt-5">
