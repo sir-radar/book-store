@@ -8,7 +8,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './utils/server'
 import i18n from './i18n'
 import { Table } from 'buefy'
+import VueLazyload from 'vue-lazyload'
+import initProgress from './progressbar'
 
+Vue.use(VueLazyload)
 Vue.use(Table)
 
 Vue.config.productionTip = false
@@ -29,6 +32,8 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
+
+initProgress(router)
 
 new Vue({
   router,

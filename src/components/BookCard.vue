@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex align-items-center justify-content-between col-12 px-0">
     <div class="book-cover col-md-5 mb-2 px-0">
-      <img class="" :src="book.image" alt="">
+      <img class="" v-lazy="book.image || require('../assets/cover2.jpg')" alt="">
       <h5 class="">{{ book.title }}</h5>
     </div>
     <div class="author-details col-md-4">

@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="row align-items-center">
-      <img src="../assets/logo.png" alt="Logo" class="logo mr-5">
+      <img @click="$router.push('/')" src="../assets/logo.png" alt="Logo" class="logo mr-5">
       <h1>Active Learning Online Store</h1>
     </div>
     <router-view/>
@@ -57,5 +57,6 @@ export default {
 }
 .logo{
   width: 12%;
+  cursor: pointer;
 }
 </style>

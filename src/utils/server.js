@@ -23,7 +23,7 @@ export default new Server({
       date () {
         return faker.date.recent().toLocaleDateString()
       },
-      image: process.env.VUE_APP_BOOK_COVER || '/img/cover2.97f2c218.jpg'
+      image: process.env.VUE_APP_BOOK_COVER
     })
   },
   seeds (server) {
@@ -34,7 +34,7 @@ export default new Server({
           title: 'Never walk alone in the dark',
           price: 5,
           date: new Date().toLocaleDateString(),
-          image: process.env.VUE_APP_BOOK_COVER || '/img/cover2.97f2c218.jpg',
+          image: process.env.VUE_APP_BOOK_COVER,
           promotion: true
         },
         {
@@ -42,7 +42,7 @@ export default new Server({
           title: 'Sweet sun in the garden',
           price: 10,
           date: new Date().toLocaleDateString(),
-          image: process.env.VUE_APP_BOOK_COVER || '/img/cover2.97f2c218.jpg',
+          image: process.env.VUE_APP_BOOK_COVER,
           promotion: false
         },
         {
@@ -50,7 +50,7 @@ export default new Server({
           title: 'Home alone with my shadow',
           price: 15,
           date: new Date().toLocaleDateString(),
-          image: process.env.VUE_APP_BOOK_COVER || '/img/cover2.97f2c218.jpg',
+          image: process.env.VUE_APP_BOOK_COVER,
           promotion: true
         },
         {
@@ -58,7 +58,7 @@ export default new Server({
           title: 'Security and a will to live',
           price: 7,
           date: new Date().toLocaleDateString(),
-          image: process.env.VUE_APP_BOOK_COVER || '/img/cover2.97f2c218.jpg',
+          image: process.env.VUE_APP_BOOK_COVER,
           promotion: false
         },
         {
@@ -66,7 +66,7 @@ export default new Server({
           title: 'War front stories and lasting effect',
           price: 8,
           date: new Date().toLocaleDateString(),
-          image: process.env.VUE_APP_BOOK_COVER || '/img/cover2.97f2c218.jpg',
+          image: process.env.VUE_APP_BOOK_COVER,
           promotion: true
         }
       ],
