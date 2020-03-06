@@ -1,39 +1,31 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Base from '../layouts/Base.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    component: Base,
-    children: [
-      {
-        path: '',
-        component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
-      },
-      {
-        path: 'about',
-        component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-      },
-      {
-        path: 'store',
-        component: () => import(/* webpackChunkName: "store" */ '../views/Store.vue')
-      },
-      {
-        path: 'login',
-        component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
-      },
-      {
-        path: 'create-account',
-        component: () => import(/* webpackChunkName: "signup" */ '../views/SignUp.vue')
-      }
-    ]
+    component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
+  },
+  {
+    path: '/about',
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  },
+  {
+    path: '/store',
+    component: () => import(/* webpackChunkName: "store" */ '../views/Store.vue')
+  },
+  {
+    path: '/login',
+    component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
+  },
+  {
+    path: '/create-account',
+    component: () => import(/* webpackChunkName: "signup" */ '../views/SignUp.vue')
   },
   {
     path: '/admin',
-    component: Base,
     children: [
       {
         path: '',
@@ -76,13 +68,7 @@ const routes = [
   },
   {
     path: '*',
-    component: Base,
-    children: [
-      {
-        path: '',
-        component: () => import(/* webpackChunkName: "signup" */ '../views/NotFound.vue')
-      }
-    ]
+    component: () => import(/* webpackChunkName: "signup" */ '../views/NotFound.vue')
   }
 ]
 
