@@ -25,18 +25,17 @@
 </template>
 
 <script>
-import store from '../store'
 import { mapActions, mapState, mapMutations } from 'vuex'
 export default {
   name: 'Home',
   components: {
     BookCard: () => import('@/components/BookCard')
   },
-  async beforeRouteEnter (to, from, next) {
-    store.dispatch('getBooks').then(res => next())
+  async mounted () {
+    await this.getBooks()
   },
   methods: {
-    ...mapActions(['createOrder']),
+    ...mapActions(['getBooks', 'createOrder']),
     ...mapMutations(['showNotify']),
     async buyBook (credentials) {
       // checks if user is currently logged in before book can be bought
