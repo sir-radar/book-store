@@ -25,12 +25,13 @@
 <script>
 import { mapState, mapMutations } from 'vuex'
 import i18n from '../i18n'
+import Notify from '@/components/Notify'
 export default {
   name: 'BaseLayout',
   components: {
     SelectLanguage: () => import('@/components/LanguageSelect'),
     Menu: () => import('@/components/Menu'),
-    Notify: () => import('@/components/Notify'),
+    Notify,
     Footer: () => import('@/components/Footer')
   },
   mounted () {
