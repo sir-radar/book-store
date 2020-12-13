@@ -18,7 +18,7 @@
       <img @click="$router.push('/')" src="./assets/logo.png" alt="Logo" class="logo mr-5">
       <h1>Active Learning Online Store</h1>
     </div>
-    <router-view/>
+    <router-view></router-view>
      <Notify v-if="notify.type" :notify="notify"/>
     <Footer />
     </section>

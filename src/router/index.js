@@ -25,47 +25,43 @@ const routes = [
     path: '/create-account',
     component: () => import(/* webpackChunkName: "signup" */ '../views/SignUp.vue')
   },
+
   {
     path: '/admin',
-    children: [
-      {
-        path: '',
-        component: () => import(/* webpackChunkName: "dashboard" */ '../views/Admin/Dashboard.vue'),
-        meta: { requiresAuth: true }
-      },
-      {
-        path: 'manage-books',
-        component: () => import(/* webpackChunkName: "manageBooks" */ '../views/Admin/ManageBooks.vue'),
-        meta: { requiresAuth: true }
-      },
-      {
-        path: 'manage-users',
-        component: () => import(/* webpackChunkName: "manageUsers" */ '../views/Admin/ManageUsers.vue'),
-        meta: { requiresAuth: true }
-      },
-      {
-        path: 'manage-orders',
-        component: () => import(/* webpackChunkName: "manageOrders" */ '../views/Admin/ManageOrders.vue'),
-        meta: { requiresAuth: true }
-      },
-      {
-        path: 'edit-book/:id',
-        name: 'bookEdit',
-        component: () => import(/* webpackChunkName: "editBook" */ '../views/Admin/AddOrEditBook.vue'),
-        meta: { requiresAuth: true }
-      },
-      {
-        path: 'add-book',
-        component: () => import(/* webpackChunkName: "addBook" */ '../views/Admin/AddOrEditBook.vue'),
-        meta: { requiresAuth: true }
-      },
-      {
-        path: 'edit-user/:id',
-        name: 'userEdit',
-        component: () => import(/* webpackChunkName: "editUser" */ '../views/Admin/EditUser.vue'),
-        meta: { requiresAuth: true }
-      }
-    ]
+    component: () => import(/* webpackChunkName: "dashboard" */ '../views/Admin/Dashboard.vue'),
+    meta: { requiresAuth: false }
+  },
+  {
+    path: '/admin/manage-books',
+    component: () => import(/* webpackChunkName: "manageBooks" */ '../views/Admin/ManageBooks.vue'),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/admin/manage-users',
+    component: () => import(/* webpackChunkName: "manageUsers" */ '../views/Admin/ManageUsers.vue'),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/admin/manage-orders',
+    component: () => import(/* webpackChunkName: "manageOrders" */ '../views/Admin/ManageOrders.vue'),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/admin/edit-book/:id',
+    name: 'bookEdit',
+    component: () => import(/* webpackChunkName: "editBook" */ '../views/Admin/AddOrEditBook.vue'),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/admin/add-book',
+    component: () => import(/* webpackChunkName: "addBook" */ '../views/Admin/AddOrEditBook.vue'),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/admin/edit-user/:id',
+    name: 'userEdit',
+    component: () => import(/* webpackChunkName: "editUser" */ '../views/Admin/EditUser.vue'),
+    meta: { requiresAuth: true }
   },
   {
     path: '*',
