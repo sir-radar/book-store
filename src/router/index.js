@@ -29,7 +29,7 @@ const routes = [
   {
     path: '/admin',
     component: () => import(/* webpackChunkName: "dashboard" */ '../views/Admin/Dashboard.vue'),
-    meta: { requiresAuth: false }
+    meta: { requiresAuth: true }
   },
   {
     path: '/admin/manage-books',
